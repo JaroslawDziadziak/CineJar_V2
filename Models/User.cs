@@ -4,6 +4,7 @@ namespace CineJarV2.Api.Models
 {
     public class User
     {
+        //Primary key for User table
         public int Id { get; set; }
 
         [Required]
@@ -25,7 +26,7 @@ namespace CineJarV2.Api.Models
         [StringLength(15)]
         public string? PhoneNumber { get; set; }
 
-        public bool IsActive { get; set; } = false;
+        public bool IsActive { get; set; } = true;
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

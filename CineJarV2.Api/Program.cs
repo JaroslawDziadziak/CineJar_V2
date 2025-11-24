@@ -1,19 +1,18 @@
 using Microsoft.EntityFrameworkCore;
-using CineJarV2.Data;
 using CineJarV2.Api.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Services to the container
+// Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//EntityFramework with PostgreSQL
+// Add Entity Framework with PostgreSQL
 builder.Services.AddDbContext<CineJarDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//CORS for Angular frontend
+// Add CORS for Angular frontend
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp", policy =>
@@ -26,7 +25,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configuration the HTTP request pipeline
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

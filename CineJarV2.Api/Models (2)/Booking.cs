@@ -11,7 +11,7 @@ namespace CineJarV2.Api.Models
         //Foreign KEY - connects to the User table
         public int UserId { get; set; }
 
-        //Navigation property -  the actual User object this booking belongs to Entity Framework will automatically fill this with the related User data
+        //Navigation property 
         public User User { get; set; } = null!;
 
         [Required]
@@ -28,7 +28,7 @@ namespace CineJarV2.Api.Models
         public string SeatNumbers { get; set; } = string.Empty;
 
         [Required]
-        [Column(TypeName = "decimal(10,2)")] //Attribute mapping configuration EFCore
+        [Column(TypeName = "decimal(10,2)")] 
         public decimal TotalPrice { get; set; }
 
         [Required]
